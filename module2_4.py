@@ -10,7 +10,8 @@ for i, j in enumerate(numbers):
             not_primes.append(j)
             is_prime = False
             break
-        if is_prime:
+    if is_prime:
             primes.append(j)
+
 print(primes)
 print(not_primes)
