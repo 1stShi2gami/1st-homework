@@ -10,10 +10,16 @@ class House:
         return f'{self.name} - {self.number_of_floors} этажей'
 
     def __eq__(self, other):
-        return self.number_of_floors == other.number_of_floors
+        if isinstance(other, House):
+            return self.number_of_floors == other.number_of_floors
+        elif isinstance(other, int):
+            return self.number_of_floors == other
 
-    def __it__(self, other):
-        return self.number_of_floors < other.number_of_floors
+    def __lt__(self, other):
+        if isinstance(other, House):
+            return self.number_of_floors < other.number_of_floors
+        elif isinstance(other, int):
+            return self.number_of_floors < other
 
     def __le__(self, other):
         return self.number_of_floors <= other.number_of_floors
@@ -27,18 +33,18 @@ class House:
     def __ne__(self, other):
         return self.number_of_floors != other.number_of_floors
 
-    def __add__(self, value):
-        self.number_of_floors += value
-        return self
+    def __add__(self, other):
+        if isinstance(other, House):
+            self.number_of_floors += other
+        elif isinstance(other, int):
+            self.number_of_floors += other
+            return self
 
     def __radd__(self, other):
         return self + other
 
-
     def __iadd__(self, other):
         return self + other
-
-
 
     def go_to(self, new_floor):
         new_floor = int(new_floor)
@@ -48,26 +54,27 @@ class House:
         else:
             print('Такого этажа нет')
 
+
 h1 = House('ЖК Эльбрус', 10)
 h2 = House('ЖК Акация', 20)
 
 print(h1)
 print(h2)
 
-print(h1 == h2) # __eq__
+print(h1 == h2)  # __eq__
 
-h1 = h1 + 10 # __add__
+h1 = h1 + 10  # __add__
 print(h1)
 print(h1 == h2)
 
-h1 += 10 # __iadd__
+h1 += 10  # __iadd__
 print(h1)
 
-h2 = 10 + h2 # __radd__
+h2 = 10 + h2  # __radd__
 print(h2)
 
-print(h1 > h2) # __gt__
-print(h1 >= h2) # __ge__
-print(h1 < h2) # __lt__
-print(h1 <= h2) # __le__
-print(h1 != h2) # __ne__
+print(h1 > h2)  # __gt__
+print(h1 >= h2)  # __ge__
+print(h1 < h2)  # __lt__
+print(h1 <= h2)  # __le__
+print(h1 != h2)  # __ne__
