@@ -14,11 +14,20 @@ class Human:
     def __len__(self):
         return self.age
 
+    def __lt__(self, other):
+        return self.age < other.age
+
+    def __gt__(self, other):
+        return self.age > other.age
+
+    def __eq__(self, other):
+        return self.age == other.age and self.name == other.name
+
+    def __bool__(self):
+        return bool(self.age)
     def __del__(self):
         print(f'{self.name} ушёл')
 
 
-tim = Human('Timur', 31)
-tan = Human("Tanya", 26)
-tan.birtheday()
-print(len(tan))
+tim = Human('Timur', 30)
+tan = Human("Tanya", 30)
