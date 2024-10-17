@@ -2,12 +2,10 @@ import io
 from pprint import pprint
 
 name = 'sample2.txt'
-file = open(name, 'r', encoding='utf-8')
-print(file.writable())
-print(file.readable())
-print(file.seekable())
-print(file.errors)
-print(file.tell())
-pprint(file.read())
-print(file.tell())
-file.close()
+with open(name, encoding='utf-8') as file:
+    for line in file:
+        for char in line:
+            print(char, end='')
+    print(file.tell())
+
+print(file.read())
