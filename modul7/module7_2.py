@@ -15,6 +15,6 @@ info = [
     'Спасибо!'
     ]
 
-result = custom_write('strings', info)
+result = custom_write('first/strings', info)
 for elem in result.items():
   print(elem)
