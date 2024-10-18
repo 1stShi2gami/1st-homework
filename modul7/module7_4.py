@@ -9,6 +9,13 @@ time_avg = 45.2
 challenge_result = 'Победа команды Волшебники данных!'
 
 
+if score_1 > score_2 or (score_1 == score_2 and team1_time > team2_time):
+    result = 'Победа команды Мастера кода!'
+elif score_1 < score_2 or (score_1 == score_2 and team1_time < team2_time):
+    result = 'Победа команды Волшебники Данных!'
+else:
+    result = 'Ничья!'
+
 print('В команде Мастера кода участников: %s' % team1_num )
 print('Итого сегодня в командах участников: %s и %s' % (team1_num, team2_num))
 print('Команда Волшебники данных решила задач: {} !'.format(score_2))
@@ -18,9 +25,3 @@ print(f'Результат битвы: {challenge_result}')
 print(f'Сегодня было решено {tasks_total} задач, в среднем по {time_avg} секунды на задачу!')
 
 
-if score_1 > score_2 or (score_1 == score_2 and team1_time > team2_time):
-    result = 'Победа команды Мастера кода!'
-elif score_1 < score_2 or (score_1 == score_2 and team1_time < team2_time):
-    result = 'Победа команды Волшебники Данных!'
-else:
-    result = 'Ничья!'
