@@ -8,7 +8,7 @@ def add_everything_up(a, b):
 
     finally:
         if isinstance(a, (int, float)) and isinstance(b, (int, float)):
-            return a + b
+            return round(a + b, 3)
 
 print(add_everything_up(123.456, 'строка'))
 print(add_everything_up('яблоко', 4215))
