@@ -1,6 +1,7 @@
 import threading
 import time
 
+
 class Knight(threading.Thread):
     def __init__(self, name, power):
         threading.Thread.__init__(self)
