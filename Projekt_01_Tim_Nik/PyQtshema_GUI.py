@@ -1,9 +1,7 @@
 import sys
-from cProfile import label
-
 from PyQt6.QtWidgets import QApplication, QWidget, QLabel
 from PyQt6.QtGui import QFont, QPixmap
-from bs4.diagnose import profile
+
 
 
 class MainWindow(QWidget):
