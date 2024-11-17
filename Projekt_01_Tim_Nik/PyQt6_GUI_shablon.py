@@ -2,7 +2,7 @@ import sys
 
 from PyQt6.QtWidgets import QApplication, QWidget
 
-class EmptyWindow(QWidget):
+class MainWindow(QWidget):
     def __init__(self):
         super().__init__()
         self.initializeUI()
@@ -12,9 +12,9 @@ class EmptyWindow(QWidget):
         self.setWindowTitle("Пустое окно в PyQt")
         self.show()
 
-        # QTimer.singleShot(5000, self.close)  Закрыть окно через 5 секунд
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    window = EmptyWindow()
-    sys.exit(app.exec())
+    window = MainWindow()
+    sys.exit(app.exec()) # QTimer.singleShot(5000, self.close)  Закрыть окно через 5 секунд
