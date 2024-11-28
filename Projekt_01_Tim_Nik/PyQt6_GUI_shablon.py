@@ -1,6 +1,8 @@
 import sys
 
-from PyQt6.QtWidgets import QApplication, QWidget
+from PyQt6.QtWidgets import (QApplication, QWidget, QPushButton, QLabel)
+from PyQt6.QtCore import Qt
+
 
 class MainWindow(QWidget):
     def __init__(self):
@@ -8,9 +10,13 @@ class MainWindow(QWidget):
         self.initializeUI()
 
     def initializeUI(self):
-        self.setGeometry(200, 100, 400, 300)
-        self.setWindowTitle("Пустое окно в PyQt")
+        self.setGeometry(100, 100, 250, 100)
+        self.setWindowTitle("PyQt - knopka experement")
+        self.setUpMainWindow()
         self.show()
+
+    def setUpMainWindow(self):
+        pass
 
 
 
