@@ -1,4 +1,6 @@
 from PIL import Image
+from PIL import ImageDraw
+from PIL import ImageFont
 
 
 def new_photo(name):
@@ -15,6 +17,10 @@ def new_photo_2(name):
 
 im = new_photo('profile.png')
 im_2 = new_photo_2('light.png')
+
+draw = ImageDraw.Draw(im)
+font = ImageFont.truetype('HandWriting.otf', 100)
+draw.text((250, 200), 'Hello', font=font, fill=('black'))
 
 im.paste(im_2, (100, 100))
 im.show('photo')
