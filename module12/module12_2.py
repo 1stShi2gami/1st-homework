@@ -1,5 +1,4 @@
 import unittest
-import unittest
 
 class Runner:
     def __init__(self, name, speed=5):
