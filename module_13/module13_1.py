@@ -1,24 +1,23 @@
-import asyncio
+﻿import asyncio
 
-async def start_tournament():
-    # Список участников силачей
-    strongmen = [('Тим', 3), ('Ник', 4), ('Лёха', 5)]
-
-    # Создаем список задач для каждого силача
-    tasks = [start_strongman(name, power) for name, power in strongmen]
-
-    # Запускаем все задачи одновременно
-    await asyncio.gather(*tasks)
 
 async def start_strongman(name, power):
     print(f'Силач {name} начал соревнования.')
 
-    # Имитация подъема шаров Атласа
-    for ball in range(1, 6):
-        print(f'Силач {name} поднял шар {ball}.')
-        await asyncio.sleep(5 / power)  # Задержка пропорциональна силе силача.
+    t1 = 1 / power
+    for i in range(5):
+        await asyncio.sleep(t1)
+        print(f'Силач {name} поднял {i + 1} шар.')
+    print(f'Силач {name} закончил соревнования.', name)
 
-    print(f'Силач {name} закончил соревнования.')
 
-# старт
+async def start_tournament():
+    task1 = asyncio.create_task(start_strongman(name='Тим', power=3))
+    task2 = asyncio.create_task(start_strongman(name='Ник', power=2))
+    task3 = asyncio.create_task(start_strongman(name='Лёха', power=1))
+    await task1
+    await task2
+    await task3
+
+
 asyncio.run(start_tournament())
